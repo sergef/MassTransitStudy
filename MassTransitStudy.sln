@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy", "MassTransitStudy\MassTransitStudy.csproj", "{6CA83CD6-FC3B-498B-BF31-32C8C38CE256}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Messages", "MassTransitStudy.Messages\MassTransitStudy.Messages.csproj", "{DBED6901-1BD2-4188-8FA8-CEB6F6D40B2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Web", "MassTransitStudy.Web\MassTransitStudy.Web.csproj", "{A6FA34A7-87F5-4A2F-BA90-9BE07456A04E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Web.Tests", "MassTransitStudy.Web.Tests\MassTransitStudy.Web.Tests.csproj", "{67A71567-68A2-4F10-BD70-289D33F70D3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Api", "MassTransitStudy.Api\MassTransitStudy.Api.csproj", "{7A10D2D9-4F05-4665-97B2-A5277FB8981C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Api.Tests", "MassTransitStudy.Api.Tests\MassTransitStudy.Api.Tests.csproj", "{F62155E4-6AE6-4998-9707-1FEC14DDB888}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CA83CD6-FC3B-498B-BF31-32C8C38CE256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA83CD6-FC3B-498B-BF31-32C8C38CE256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA83CD6-FC3B-498B-BF31-32C8C38CE256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA83CD6-FC3B-498B-BF31-32C8C38CE256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBED6901-1BD2-4188-8FA8-CEB6F6D40B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBED6901-1BD2-4188-8FA8-CEB6F6D40B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBED6901-1BD2-4188-8FA8-CEB6F6D40B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBED6901-1BD2-4188-8FA8-CEB6F6D40B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6FA34A7-87F5-4A2F-BA90-9BE07456A04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6FA34A7-87F5-4A2F-BA90-9BE07456A04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6FA34A7-87F5-4A2F-BA90-9BE07456A04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6FA34A7-87F5-4A2F-BA90-9BE07456A04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A71567-68A2-4F10-BD70-289D33F70D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A71567-68A2-4F10-BD70-289D33F70D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A71567-68A2-4F10-BD70-289D33F70D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A71567-68A2-4F10-BD70-289D33F70D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A10D2D9-4F05-4665-97B2-A5277FB8981C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A10D2D9-4F05-4665-97B2-A5277FB8981C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A10D2D9-4F05-4665-97B2-A5277FB8981C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A10D2D9-4F05-4665-97B2-A5277FB8981C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62155E4-6AE6-4998-9707-1FEC14DDB888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62155E4-6AE6-4998-9707-1FEC14DDB888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62155E4-6AE6-4998-9707-1FEC14DDB888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62155E4-6AE6-4998-9707-1FEC14DDB888}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
