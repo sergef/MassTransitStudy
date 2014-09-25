@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Messages", "MassTransitStudy.Messages\MassTransitStudy.Messages.csproj", "{DBED6901-1BD2-4188-8FA8-CEB6F6D40B2B}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Api.Tests", "MassTransitStudy.Api.Tests\MassTransitStudy.Api.Tests.csproj", "{F62155E4-6AE6-4998-9707-1FEC14DDB888}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Messenger", "MassTransitStudy.Messenger\MassTransitStudy.Messenger.csproj", "{43F082ED-EA1D-476C-9B79-B0F4D7335E81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Purser", "MassTransitStudy.Purser\MassTransitStudy.Purser.csproj", "{3425B625-F9FC-4C89-8C82-89B343C2E7A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{43F082ED-EA1D-476C-9B79-B0F4D7335E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43F082ED-EA1D-476C-9B79-B0F4D7335E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43F082ED-EA1D-476C-9B79-B0F4D7335E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3425B625-F9FC-4C89-8C82-89B343C2E7A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3425B625-F9FC-4C89-8C82-89B343C2E7A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3425B625-F9FC-4C89-8C82-89B343C2E7A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3425B625-F9FC-4C89-8C82-89B343C2E7A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,7 +8,7 @@
     <Setting Name="ServiceName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MassTransitStudyMessenger</Value>
     </Setting>
-    <Setting Name="ServiceDesciption" Type="System.String" Scope="Application">
+    <Setting Name="ServiceDescription" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Basic Messenger service to produce various types of messages for MassTransit service bus</Value>
     </Setting>
     <Setting Name="MessageProductionInterval" Type="System.Double" Scope="Application">

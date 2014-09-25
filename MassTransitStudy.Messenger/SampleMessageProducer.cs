@@ -7,11 +7,12 @@ using Magnum;
 using MassTransit;
 using MassTransitStudy.Messages;
 using MassTransitStudy.Messenger.Properties;
+using Topshelf;
 using Topshelf.Runtime;
 
 namespace MassTransitStudy.Messenger
 {
-    public class SampleMessageProducer : IHostableService
+    public class SampleMessageProducer : ServiceControl
     {
         private readonly Timer Timer;
 
@@ -35,34 +36,23 @@ namespace MassTransitStudy.Messenger
         {
             Bus.Instance.Publish(new SampleMessage
                 {
-                    CorrelationId = CombGuid.Generate(),
+                    Id = CombGuid.Generate(),
                     Data = "Something",
                     Timestamp = DateTime.UtcNow
                 });
         }
 
-        public void Start()
+        public bool Start(HostControl hostControl)
         {
-            Bus.Initialize(bus =>
-                {
-                    bus.UseRabbitMq();
-                    bus.ReceiveFrom(Messages.Properties.Settings.Default.QueuePath);
-                    bus.UseXmlSerializer();
-                });
-
             this.Timer.Start();
+            return true;
         }
 
-        public void Stop()
+        public bool Stop(HostControl hostControl)
         {
             this.Timer.Stop();
             Bus.Shutdown();
-        }
-
-        public void Shutdown()
-        {
-            this.Timer.Stop();
-            Bus.Shutdown();
+            return true;
         }
     }
 }

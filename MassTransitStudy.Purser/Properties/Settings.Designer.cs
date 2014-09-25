@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MassTransitStudy.Messenger.Properties {
+namespace MassTransitStudy.Purser.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,26 +25,7 @@ namespace MassTransitStudy.Messenger.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MassTransit Study Messenger")]
-        public string ServiceDisplayName {
-            get {
-                return ((string)(this["ServiceDisplayName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MassTransitStudyMessenger")]
-        public string ServiceName {
-            get {
-                return ((string)(this["ServiceName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Basic Messenger service to produce various types of messages for MassTransit serv" +
-            "ice bus")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Service responsible for persistance of data extracted from various messages.")]
         public string ServiceDescription {
             get {
                 return ((string)(this["ServiceDescription"]));
@@ -53,10 +34,28 @@ namespace MassTransitStudy.Messenger.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public double MessageProductionInterval {
+        [global::System.Configuration.DefaultSettingValueAttribute("MassTransitStudyPurser")]
+        public string ServiceName {
             get {
-                return ((double)(this["MessageProductionInterval"]));
+                return ((string)(this["ServiceName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MassTransit Study Purser")]
+        public string ServiceDisplayName {
+            get {
+                return ((string)(this["ServiceDisplayName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.2")]
+        public string CassandraNode {
+            get {
+                return ((string)(this["CassandraNode"]));
             }
         }
     }

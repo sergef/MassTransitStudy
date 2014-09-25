@@ -8,9 +8,9 @@ using MassTransit;
 namespace MassTransitStudy.Messages
 {
     [Serializable]
-    public class SampleMessage : CorrelatedBy<Guid>
+    public class SampleMessage
     {
-        public Guid CorrelationId { get; set; }
+        public Guid Id { get; set; }
 
         public String Data { get; set; }
 
