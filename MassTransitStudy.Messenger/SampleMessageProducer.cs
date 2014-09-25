@@ -34,12 +34,14 @@ namespace MassTransitStudy.Messenger
 
         void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-            Bus.Instance.Publish(new SampleMessage
-                {
-                    Id = CombGuid.Generate(),
-                    Data = "Something",
-                    Timestamp = DateTime.UtcNow
-                });
+            //TODO: Generalize message creation
+            Bus.Instance.Publish(
+                new SampleMessage
+                    {
+                        Id = CombGuid.Generate(),
+                        Data = "Something",
+                        Timestamp = DateTime.UtcNow
+                    });
         }
 
         public bool Start(HostControl hostControl)

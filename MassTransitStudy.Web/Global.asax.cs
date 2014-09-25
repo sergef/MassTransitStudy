@@ -18,12 +18,12 @@ namespace MassTransitStudy.Web
                     bus.UseRabbitMq();
                     bus.UseXmlSerializer();
 
-                    bus.Subscribe(sub => 
+                    bus.Subscribe(sub =>
                         {
-                            sub.Handler<SampleMessage>((c, m) =>
+                            sub.Handler<SampleMessage>((context, message) =>
                                 {
                                     var hub = GlobalHost.ConnectionManager.GetHubContext<SampleMessagesHub>();
-                                    hub.Clients.All.addNewMessageToPage(m.Timestamp, m.Data);
+                                    hub.Clients.All.addNewMessageToPage(message);
                                 });
                         });
                 });

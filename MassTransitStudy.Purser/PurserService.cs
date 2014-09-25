@@ -31,7 +31,7 @@ namespace MassTransitStudy.Purser
 
         public bool Start(HostControl hostControl)
         {
-            this.Repository.CreateSchemaIfNotExists();
+            //this.Repository.CreateSchemaIfNotExists();
             return true;
         }
 

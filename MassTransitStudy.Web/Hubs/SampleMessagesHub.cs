@@ -5,14 +5,22 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using MassTransit;
 using MassTransitStudy.Messages;
+using Magnum;
 
 namespace MassTransitStudy.Web.Hubs
 {
     public class SampleMessagesHub : Hub
     {
-        public void Send(string name, string message)
+        public void Send(string message)
         {
-            Clients.All.addNewMessageToPage(name, message);
+            var newMessage = new SampleMessage
+                {
+                    Id = CombGuid.Generate(),
+                    Data = message,
+                    Timestamp = DateTime.UtcNow
+                };
+
+            Bus.Instance.Publish(newMessage);
         }
     }
 }
