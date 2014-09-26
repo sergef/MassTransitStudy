@@ -13,14 +13,24 @@ namespace MassTransitStudy.Web.Hubs
     {
         public void Send(string message)
         {
-            var newMessage = new SampleMessage
-                {
-                    Id = CombGuid.Generate(),
-                    Data = message,
-                    Timestamp = DateTime.UtcNow
-                };
+            Bus.Instance.Publish(
+                new SampleMessage
+                    {
+                        Id = CombGuid.Generate(),
+                        Data = message,
+                        Timestamp = DateTime.UtcNow
+                    });
+        }
 
-            Bus.Instance.Publish(newMessage);
+        public void GetSampleMessagesList(int startIndex, int numberOfItems)
+        {
+            Bus.Instance.Publish(
+                new GetSampleMessagesList
+                    {
+                        CorrelationId = CombGuid.Generate(),
+                        StartIndex = startIndex,
+                        NumberOfItems = numberOfItems
+                    });
         }
     }
 }

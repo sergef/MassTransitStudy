@@ -18,12 +18,21 @@ namespace MassTransitStudy.Web
                     bus.UseRabbitMq();
                     bus.UseXmlSerializer();
 
+                    //bus.Subscribe(sub =>
+                    //    {
+                    //        sub.Handler<SampleMessage>((context, message) =>
+                    //            {
+                    //                var hub = GlobalHost.ConnectionManager.GetHubContext<SampleMessagesHub>();
+                    //                hub.Clients.All.addNewMessageToPage(message);
+                    //            });
+                    //    });
+
                     bus.Subscribe(sub =>
                         {
-                            sub.Handler<SampleMessage>((context, message) =>
+                            sub.Handler<GetSampleMessagesListResult>((context, message) =>
                                 {
                                     var hub = GlobalHost.ConnectionManager.GetHubContext<SampleMessagesHub>();
-                                    hub.Clients.All.addNewMessageToPage(message);
+                                    hub.Clients.All.addListOfMessagesToPage(message);
                                 });
                         });
                 });

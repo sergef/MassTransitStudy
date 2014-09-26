@@ -11,7 +11,9 @@ using StringFormat;
 
 namespace MassTransitStudy.Purser
 {
-    public class SampleMessageConsumer : Consumes<SampleMessage>.All
+    public class SampleMessageConsumer :
+        Consumes<SampleMessage>.All,
+        Consumes<GetSampleMessagesList>.All
     {
         public ILog Log
         {
@@ -41,16 +43,27 @@ namespace MassTransitStudy.Purser
 
         public void Consume(SampleMessage message)
         {
-            Log.Info(
-                TokenStringFormat.Format(
-                    "Consuming Message: {Id}, {Timestamp}, {Data}.",
-                    message));
-
             this.Repository.SaveSampleMessage(message);
 
             Log.Info(
                 TokenStringFormat.Format(
-                    "Saved Message: {Id}, {Timestamp}, {Data}.",
+                    "SampleMessage: {Id}, {Timestamp}, {Data}.",
+                    message));
+        }
+
+        public void Consume(GetSampleMessagesList message)
+        {
+            ServiceBus.Publish(new GetSampleMessagesListResult
+                {
+                    CorrelationId = message.CorrelationId,
+                    StartIndex = message.StartIndex,
+                    NumberOfItems = message.NumberOfItems,
+                    Result = this.Repository.GetSampleMessagesList(message.StartIndex, message.NumberOfItems)
+                });
+
+            Log.Info(
+                TokenStringFormat.Format(
+                    "GetSampleMessagesList: {CorrelationId}.",
                     message));
         }
 

@@ -42,10 +42,33 @@ namespace MassTransitStudy.Purser
                 session.Execute(
                     TokenStringFormat.Format(
                         @"INSERT INTO MassTransitStudy.SampleMessages
-                    (Id, MessageTimestamp, MessageData)
-                    VALUES ({Id}, '{Timestamp}', '{Data}');",
+                        (Id, MessageTimestamp, MessageData)
+                        VALUES ({Id}, '{Timestamp}', '{Data}');",
                         message));
             }
+        }
+
+        public List<SampleMessage> GetSampleMessagesList(int startIndex, int numberOfItems)
+        {
+            var result = new List<SampleMessage>();
+
+            using (var session = this.Cluster.Connect())
+            {
+                var rowSet = session.Execute(
+                    @"SELECT * FROM MassTransitStudy.SampleMessages;");
+
+                foreach (var row in rowSet.GetRows())
+                {
+                    result.Add(new SampleMessage
+                        {
+                            Id = row.GetValue<Guid>("id"),
+                            Timestamp = DateTime.Parse(row.GetValue<string>("messagetimestamp")),
+                            Data = row.GetValue<string>("messagedata")
+                        });
+                }
+            }
+
+            return result;
         }
 
         #endregion

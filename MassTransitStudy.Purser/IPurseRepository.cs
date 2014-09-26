@@ -13,5 +13,7 @@ namespace MassTransitStudy.Purser
         void CreateSchemaIfNotExists();
 
         void SaveSampleMessage(SampleMessage message);
+
+        List<SampleMessage> GetSampleMessagesList(int startIndex, int numberOfItems);
     }
 }
