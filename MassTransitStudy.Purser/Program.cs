@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cassandra;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using MassTransit;
-using MassTransit.Saga;
-using MassTransitStudy.Purser.Properties;
-using MassTransit.Log4NetIntegration.Logging;
-using Topshelf;
-using Castle.Windsor.Installer;
-
-namespace MassTransitStudy.Purser
+﻿namespace MassTransitStudy.Purser
 {
+    using Castle.Windsor;
+    using Castle.Windsor.Installer;
+
+    using MassTransit;
+    using MassTransit.Log4NetIntegration.Logging;
+
+    using MassTransitStudy.Purser.Properties;
+
+    using Topshelf;
+
     class Program
     {
         static void Main(string[] args)

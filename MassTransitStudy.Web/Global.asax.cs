@@ -1,13 +1,16 @@
-﻿using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-using MassTransit;
-using MassTransitStudy.Messages;
-using MassTransitStudy.Web.Hubs;
-using Microsoft.AspNet.SignalR;
-
-namespace MassTransitStudy.Web
+﻿namespace MassTransitStudy.Web
 {
+    using System.Web.Mvc;
+    using System.Web.Optimization;
+    using System.Web.Routing;
+
+    using MassTransit;
+
+    using MassTransitStudy.Messages;
+    using MassTransitStudy.Web.Hubs;
+
+    using Microsoft.AspNet.SignalR;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -18,26 +21,17 @@ namespace MassTransitStudy.Web
                     bus.UseRabbitMq();
                     bus.UseXmlSerializer();
 
-                    //bus.Subscribe(sub =>
-                    //    {
-                    //        sub.Handler<SampleMessage>((context, message) =>
-                    //            {
-                    //                var hub = GlobalHost.ConnectionManager.GetHubContext<SampleMessagesHub>();
-                    //                hub.Clients.All.addNewMessageToPage(message);
-                    //            });
-                    //    });
-
-                    bus.Subscribe(sub =>
-                        {
-                            sub.Handler<GetSampleMessagesListResult>((context, message) =>
+                    bus.Subscribe(
+                        sub => sub.Handler<GetSampleMessagesListResult>(
+                            (context, message) =>
                                 {
                                     var hub = GlobalHost.ConnectionManager.GetHubContext<SampleMessagesHub>();
                                     hub.Clients.All.addListOfMessagesToPage(message);
-                                });
-                        });
+                                }));
                 });
 
             AreaRegistration.RegisterAllAreas();
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

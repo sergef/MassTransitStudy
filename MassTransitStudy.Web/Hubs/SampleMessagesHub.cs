@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.SignalR;
-using MassTransit;
-using MassTransitStudy.Messages;
-using Magnum;
-
-namespace MassTransitStudy.Web.Hubs
+﻿namespace MassTransitStudy.Web.Hubs
 {
+    using System;
+
+    using Magnum;
+
+    using MassTransit;
+
+    using MassTransitStudy.Messages;
+
+    using Microsoft.AspNet.SignalR;
+
     public class SampleMessagesHub : Hub
     {
         public void Send(string message)

@@ -1,9 +1,12 @@
-﻿using Microsoft.Owin;
-using Owin;
+﻿
+using Microsoft.Owin;
 
-[assembly: OwinStartupAttribute(typeof(MassTransitStudy.Web.Startup))]
+[assembly: OwinStartup(typeof(MassTransitStudy.Web.Startup))]
+
 namespace MassTransitStudy.Web
 {
+    using Owin;
+
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)

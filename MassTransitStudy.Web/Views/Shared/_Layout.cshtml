@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body ng-controller="sampleMessagesHub">
+<body ng-app="SampleMessagesHub">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -46,6 +46,7 @@
     @Scripts.Render("~/bundles/angularjs")
     @Scripts.Render("~/bundles/signalr")
     @Scripts.Render("~/signalr/hubs")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

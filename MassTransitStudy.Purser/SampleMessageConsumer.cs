@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cassandra;
-using log4net;
-using MassTransit;
-using MassTransitStudy.Messages;
-using StringFormat;
-
-namespace MassTransitStudy.Purser
+﻿namespace MassTransitStudy.Purser
 {
+    using Cassandra;
+
+    using log4net;
+
+    using MassTransit;
+
+    using MassTransitStudy.Messages;
+
+    using StringFormat;
+
     public class SampleMessageConsumer :
         Consumes<SampleMessage>.All,
         Consumes<GetSampleMessagesList>.All

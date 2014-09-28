@@ -6,46 +6,16 @@
     <h3>Sample Messages Hub</h3>
 </div>
 
-<div class="row">
-    <input type="text" id="message" />
-    <input type="button" id="sendmessage" value="Send" />
-    <input type="button" id="loadMessages" value="Load Messages" />
+<div ng-controller ="SampleMessagesHubController">
+    <div class="row">
+        <p>{{ message }}</p>
+        <form novalidate>
+            <input type="text" ng-model="message" />
+            <button ng-click="sendMessage()">Send Message</button>
+            <button ng-click="loadMessages()">Load Messages</button>
+        </form>
+    </div>
+    <div class="row">
+        <sample-messages-table></sample-messages-table>
+    </div>
 </div>
-<div class="row">
-    <table id="messagesList"></table>
-</div>
-
-@section Scripts {
-    <script>
-        $(function () {
-            var chat = $.connection.sampleMessagesHub;
-
-            chat.client.addNewMessageToPage = renderMessageOnPage;
-
-            chat.client.addListOfMessagesToPage = function (message) {
-                message.Result.forEach(renderMessageOnPage);
-            };
-
-            $.connection.hub.start().done(function () {
-                $('#loadMessages').click(function () {
-                    chat.server.getSampleMessagesList(0, 0);
-                });
-
-                $('#sendmessage').click(function () {
-                    chat.server.send($('#message').val());
-                    $('#message').val('').focus();
-                });
-            });
-        });
-
-        function renderMessageOnPage(message) {
-            $('#messagesList').append(
-                '<tr><td>' + htmlEncode(message.Id) + '</td><td>' + htmlEncode(message.Timestamp) + '</td><td>' + htmlEncode(message.Data) + '</td></tr>');
-        }
-
-        function htmlEncode(value) {
-            var encodedValue = $('<div />').text(value).html();
-            return encodedValue;
-        }
-    </script>
-}

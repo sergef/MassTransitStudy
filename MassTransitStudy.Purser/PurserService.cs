@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Cassandra;
-using MassTransit;
-using MassTransitStudy.Messages;
-using Topshelf;
-
-namespace MassTransitStudy.Purser
+﻿namespace MassTransitStudy.Purser
 {
+    using Cassandra;
+
+    using MassTransit;
+
+    using Topshelf;
+
     public class PurserService : ServiceControl
     {
         public IServiceBus ServiceBus

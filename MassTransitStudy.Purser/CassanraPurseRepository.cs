@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cassandra;
-using MassTransitStudy.Messages;
-using StringFormat;
-
-namespace MassTransitStudy.Purser
+﻿namespace MassTransitStudy.Purser
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Cassandra;
+
+    using MassTransitStudy.Messages;
+
+    using StringFormat;
+
     public class CassanraPurseRepository : IPurseRepository
     {
         public ICluster Cluster

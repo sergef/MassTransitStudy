@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Timers;
-using Magnum;
-using MassTransit;
-using MassTransitStudy.Messages;
-using MassTransitStudy.Messenger.Properties;
-using Topshelf;
-using Topshelf.Runtime;
-
-namespace MassTransitStudy.Messenger
+﻿namespace MassTransitStudy.Messenger
 {
+    using System;
+    using System.Timers;
+
+    using Magnum;
+
+    using MassTransit;
+
+    using MassTransitStudy.Messages;
+    using MassTransitStudy.Messenger.Properties;
+
+    using Topshelf;
+
     public class SampleMessageProducer : ServiceControl
     {
         private readonly Timer Timer;
@@ -34,7 +34,7 @@ namespace MassTransitStudy.Messenger
 
         void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-            //TODO: Generalize message creation
+            // TODO: Generalize message creation
             Bus.Instance.Publish(
                 new SampleMessage
                     {
