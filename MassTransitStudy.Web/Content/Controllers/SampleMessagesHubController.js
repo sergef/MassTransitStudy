@@ -27,6 +27,10 @@
             $scope.sendMessage = function() {
                 $scope.messagesHub.server.send($scope.message);
             };
+
+            $scope.clearMessages = function() {
+                $scope.messages = [];
+            }
         })
     .directive(
         'sampleMessagesTable',
