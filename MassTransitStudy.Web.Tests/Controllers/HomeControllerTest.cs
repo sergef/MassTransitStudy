@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MassTransitStudy.Web;
-using MassTransitStudy.Web.Controllers;
-
-namespace MassTransitStudy.Web.Tests.Controllers
+﻿namespace MassTransitStudy.Web.Tests.Controllers
 {
+    using System.Web.Mvc;
+
+    using MassTransitStudy.Web.Controllers;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class HomeControllerTest
     {

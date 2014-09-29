@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MassTransit;
-using MassTransitStudy.Messenger.Properties;
-using Topshelf;
-
-namespace MassTransitStudy.Messenger
+﻿namespace MassTransitStudy.Messenger
 {
+    using MassTransit;
+
+    using MassTransitStudy.Messenger.Properties;
+
+    using Topshelf;
+
     class Program
     {
         static void Main(string[] args)

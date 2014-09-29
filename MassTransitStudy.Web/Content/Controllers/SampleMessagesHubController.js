@@ -30,7 +30,7 @@
 
             $scope.clearMessages = function() {
                 $scope.messages = [];
-            }
+            };
         })
     .directive(
         'sampleMessagesTable',

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MassTransitStudy.Messages
+﻿namespace MassTransitStudy.Messages
 {
+    using System;
+    using System.Collections.Generic;
+
     [Serializable]
     public class GetSampleMessagesListResult : GetSampleMessagesList
     {
