@@ -1,7 +1,5 @@
 ﻿namespace MassTransitStudy.Purser
 {
-    using Cassandra;
-
     using Castle.MicroKernel.Registration;
     using Castle.MicroKernel.SubSystems.Configuration;
     using Castle.Windsor;
@@ -10,7 +8,7 @@
 
     using MassTransit;
 
-    using MassTransitStudy.Purser.Properties;
+    using Topshelf;
 
     public class ContainerInstaller : IWindsorInstaller
     {
@@ -19,35 +17,17 @@
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-                //Component
-                //    .For(typeof(ISagaRepository<>))
-                //    .ImplementedBy(typeof(InMemorySagaRepository<>))
-                //    .LifeStyle.Singleton,
-                //Component
-                //    .For<PurserSaga>()
-                //    .LifeStyle.Singleton,
                 Types
                     .FromThisAssembly()
                     .BasedOn<IConsumer>(),
-                Component
-                    .For<IPurseRepository>()
-                    .ImplementedBy<CassanraPurseRepository>(),
                 Component
                     .For<ILog>()
                     .UsingFactoryMethod(() =>
                         LogManager
                             .GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)),
                 Component
-                    .For<ICluster>()
-                    .UsingFactoryMethod(() =>
-                        Cluster
-                            .Builder()
-                            .AddContactPoint(Settings.Default.CassandraNode)
-                            .Build())
-                    .LifestyleTransient()
-                    .OnDestroy(cluster => cluster.Shutdown()),
-                Component
-                    .For<PurserService>()
+                    .For<ServiceControl>()
+                    .ImplementedBy<PurserService>()
                     .LifeStyle
                     .Singleton,
                 Component

@@ -1,7 +1,5 @@
 ﻿namespace MassTransitStudy.Purser
 {
-    using Cassandra;
-
     using log4net;
 
     using MassTransit;
@@ -26,23 +24,11 @@
             set;
         }
 
-        public ICluster Cluster
-        {
-            get;
-            set;
-        }
-
-        public IPurseRepository Repository
-        {
-            get;
-            set;
-        }
-
         #region All Members
 
         public void Consume(SampleMessage message)
         {
-            this.Repository.SaveSampleMessage(message);
+            //this.Repository.SaveSampleMessage(message);
 
             Log.Info(
                 TokenStringFormat.Format(
@@ -56,8 +42,8 @@
                 {
                     CorrelationId = message.CorrelationId,
                     StartIndex = message.StartIndex,
-                    NumberOfItems = message.NumberOfItems,
-                    Result = this.Repository.GetSampleMessagesList(message.StartIndex, message.NumberOfItems)
+                    NumberOfItems = message.NumberOfItems//,
+                    //Result = this.Repository.GetSampleMessagesList(message.StartIndex, message.NumberOfItems)
                 });
 
             Log.Info(

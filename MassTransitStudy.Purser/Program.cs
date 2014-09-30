@@ -29,7 +29,7 @@
 
                 config.Service<ServiceControl>(service =>
                     {
-                        service.ConstructUsing(builder => container.Resolve<PurserService>());
+                        service.ConstructUsing(builder => container.Resolve<ServiceControl>());
 
                         service.WhenStarted((serviceControl, hostControl) => serviceControl.Start(hostControl));
 

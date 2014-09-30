@@ -1,4 +1,4 @@
-﻿namespace MassTransitStudy.Purser
+﻿namespace MassTransitStudy.Api.MessageStore
 {
     using System;
     using System.Collections.Generic;
@@ -9,7 +9,7 @@
 
     using StringFormat;
 
-    public class CassanraPurseRepository : IPurseRepository
+    public class CassanraMessageStoreRepository : IMessageStoreRepository
     {
         public ICluster Cluster
         {

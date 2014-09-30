@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MassTransitStudy.Purser.Properties {
+namespace MassTransitStudy.Api.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,16 +25,16 @@ namespace MassTransitStudy.Purser.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Service responsible for persistance of data extracted from various messages.")]
-        public string ServiceDescription {
+        [global::System.Configuration.DefaultSettingValueAttribute("MassTransit Study Api")]
+        public string ServiceDisplayName {
             get {
-                return ((string)(this["ServiceDescription"]));
+                return ((string)(this["ServiceDisplayName"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MassTransitStudyPurser")]
+        [global::System.Configuration.DefaultSettingValueAttribute("MassTransitStudyApi")]
         public string ServiceName {
             get {
                 return ((string)(this["ServiceName"]));
@@ -43,10 +43,28 @@ namespace MassTransitStudy.Purser.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MassTransit Study Purser")]
-        public string ServiceDisplayName {
+        [global::System.Configuration.DefaultSettingValueAttribute("Basic self-hosted Api service")]
+        public string ServiceDescription {
             get {
-                return ((string)(this["ServiceDisplayName"]));
+                return ((string)(this["ServiceDescription"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.2")]
+        public string CassandraNode {
+            get {
+                return ((string)(this["CassandraNode"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8081/")]
+        public string ServiceBaseAddress {
+            get {
+                return ((string)(this["ServiceBaseAddress"]));
             }
         }
     }

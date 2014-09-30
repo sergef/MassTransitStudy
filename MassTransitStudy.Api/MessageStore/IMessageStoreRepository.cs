@@ -1,10 +1,10 @@
-﻿namespace MassTransitStudy.Purser
+﻿namespace MassTransitStudy.Api.MessageStore
 {
     using System.Collections.Generic;
 
     using MassTransitStudy.Messages;
 
-    public interface IPurseRepository
+    public interface IMessageStoreRepository
     {
         void CreateSchemaIfNotExists();
 

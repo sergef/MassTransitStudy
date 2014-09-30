@@ -1,7 +1,5 @@
 ﻿namespace MassTransitStudy.Purser
 {
-    using Cassandra;
-
     using MassTransit;
 
     using Topshelf;
@@ -14,21 +12,8 @@
             set;
         }
 
-        public IPurseRepository Repository
-        {
-            get;
-            set;
-        }
-
-        public ICluster Cluster
-        {
-            get;
-            set;
-        }
-
         public bool Start(HostControl hostControl)
         {
-            //this.Repository.CreateSchemaIfNotExists();
             return true;
         }
 
