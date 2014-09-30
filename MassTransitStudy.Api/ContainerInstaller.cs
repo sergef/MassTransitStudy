@@ -11,6 +11,7 @@
 
     using log4net;
 
+    using MassTransitStudy.Api.Controllers;
     using MassTransitStudy.Api.MessageStore;
     using MassTransitStudy.Api.Properties;
 
@@ -26,6 +27,10 @@
                 Component
                     .For<IMessageStoreRepository>()
                     .ImplementedBy<CassanraMessageStoreRepository>(),
+                Component
+                    .For<MessagesController>()
+                    .LifeStyle
+                    .Transient,
                 Component
                     .For<ServiceControl>()
                     .ImplementedBy<ApiService>()
