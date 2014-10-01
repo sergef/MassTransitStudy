@@ -10,14 +10,18 @@
             $scope.messagesHub = $.connection.sampleMessagesHub;
             $.connection.hub.start();
 
-            $scope.messagesHub.client.addListOfMessagesToPage = function(message) {
-                $scope.messages = message.Result;
-                $scope.startIndex = message.StartIndex;
-                $scope.numberOfMessages = message.NumberOfItems;
+            $scope.messagesHub.client.addListOfMessagesToPage = function (message) {
+                $scope.$apply(function() {
+                    $scope.messages = message.Result;
+                    $scope.startIndex = message.StartIndex;
+                    $scope.numberOfMessages = message.NumberOfItems;
+                });
             };
 
             $scope.messagesHub.client.addNewMessageToPage = function(message) {
-                $scope.messages.push(message);
+                $scope.$apply(function() {
+                    $scope.messages.push(message);
+                });
             };
 
             $scope.loadMessages = function() {

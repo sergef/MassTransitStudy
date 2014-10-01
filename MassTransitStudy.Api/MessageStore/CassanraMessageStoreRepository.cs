@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Cassandra;
 
@@ -48,7 +49,7 @@
             }
         }
 
-        public List<SampleMessage> GetSampleMessagesList(int startIndex, int numberOfItems)
+        public List<SampleMessage> GetSampleMessages(int startIndex, int numberOfItems)
         {
             var result = new List<SampleMessage>();
 
@@ -57,15 +58,13 @@
                 var rowSet = session.Execute(
                     @"SELECT * FROM MassTransitStudy.SampleMessages;");
 
-                foreach (var row in rowSet.GetRows())
-                {
-                    result.Add(new SampleMessage
+                result.AddRange(
+                    rowSet.GetRows().Select(row => new SampleMessage
                         {
                             Id = row.GetValue<Guid>("id"),
                             Timestamp = DateTime.Parse(row.GetValue<string>("messagetimestamp")),
                             Data = row.GetValue<string>("messagedata")
-                        });
-                }
+                        }));
             }
 
             return result;

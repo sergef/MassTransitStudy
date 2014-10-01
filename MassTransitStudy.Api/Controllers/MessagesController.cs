@@ -10,10 +10,10 @@
     {
         public IMessageStoreRepository MessageStore { get; set; }
 
-        [Route("api/messages")]
-        public IEnumerable<SampleMessage> Get()
+        [Route("Api/Messages/StartIndex/{StartIndex}/NumberOfItems/{NumberOfItems}")]
+        public IEnumerable<SampleMessage> Get(int startIndex, int numberOfItems)
         {
-            return this.MessageStore.GetSampleMessagesList(0, 100);
+            return this.MessageStore.GetSampleMessages(startIndex, numberOfItems);
         }
 
         // GET: api/Messages/5
@@ -22,9 +22,11 @@
             return "value";
         }
 
-        // POST: api/Messages
-        public void Post([FromBody]string value)
+        [Route("Api/Messages")]
+        public SampleMessage Post([FromBody]SampleMessage message)
         {
+            this.MessageStore.SaveSampleMessage(message);
+            return message;
         }
 
         // PUT: api/Messages/5

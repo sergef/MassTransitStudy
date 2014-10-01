@@ -31,5 +31,14 @@ namespace MassTransitStudy.Messages.Properties {
                 return ((string)(this["QueuePath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8081/")]
+        public string ApiServiceBaseAddress {
+            get {
+                return ((string)(this["ApiServiceBaseAddress"]));
+            }
+        }
     }
 }

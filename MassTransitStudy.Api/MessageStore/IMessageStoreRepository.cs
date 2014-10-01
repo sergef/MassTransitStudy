@@ -10,6 +10,6 @@
 
         void SaveSampleMessage(SampleMessage message);
 
-        List<SampleMessage> GetSampleMessagesList(int startIndex, int numberOfItems);
+        List<SampleMessage> GetSampleMessages(int startIndex, int numberOfItems);
     }
 }

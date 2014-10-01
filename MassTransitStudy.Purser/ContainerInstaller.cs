@@ -21,6 +21,9 @@
                     .FromThisAssembly()
                     .BasedOn<IConsumer>(),
                 Component
+                    .For<IApiClient>()
+                    .ImplementedBy<ApiClient>(),
+                Component
                     .For<ILog>()
                     .UsingFactoryMethod(() =>
                         LogManager

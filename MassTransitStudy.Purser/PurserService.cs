@@ -6,11 +6,7 @@
 
     public class PurserService : ServiceControl
     {
-        public IServiceBus ServiceBus
-        {
-            get;
-            set;
-        }
+        public IServiceBus ServiceBus { get; set; }
 
         public bool Start(HostControl hostControl)
         {
