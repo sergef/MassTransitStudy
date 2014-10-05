@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using MassTransitStudy.Messages;
+    using MassTransitStudy.Api.Models;
 
     public interface IMessageStoreRepository
     {

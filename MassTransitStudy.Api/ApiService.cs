@@ -3,6 +3,7 @@
     using System;
     using System.Web.Http;
 
+    using MassTransitStudy.Api.MessageStore;
     using MassTransitStudy.Messages.Properties;
 
     using Microsoft.Owin.Hosting;
@@ -15,13 +16,18 @@
     {
         public HttpConfiguration WebApiConfiguration { get; set; }
 
+        public IMessageStoreRepository MessageStore { get; set; }
+
         protected IDisposable WebApplication;
 
         public bool Start(HostControl hostControl)
         {
+            this.MessageStore.CreateSchemaIfNotExists();
+
             this.WebApplication = WebApp.Start(
                 Settings.Default.ApiServiceBaseAddress,
                 builder => builder.UseWebApi(this.WebApiConfiguration));
+
             return true;
         }
 

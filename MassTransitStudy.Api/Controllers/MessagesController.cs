@@ -1,19 +1,23 @@
 ﻿namespace MassTransitStudy.Api.Controllers
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Http;
-
     using MassTransitStudy.Api.MessageStore;
-    using MassTransitStudy.Messages;
+    using MassTransitStudy.Api.Models;
+
+    using SampleMessageDto = MassTransitStudy.Messages.SampleMessage;
 
     public class MessagesController : ApiController
     {
         public IMessageStoreRepository MessageStore { get; set; }
 
         [Route("Api/Messages/StartIndex/{StartIndex}/NumberOfItems/{NumberOfItems}")]
-        public IEnumerable<SampleMessage> Get(int startIndex, int numberOfItems)
+        public IEnumerable<SampleMessageDto> Get(int startIndex, int numberOfItems)
         {
-            return this.MessageStore.GetSampleMessages(startIndex, numberOfItems);
+            return this.MessageStore
+                .GetSampleMessages(startIndex, numberOfItems)
+                .Select(item => item.Map<SampleMessageDto>());
         }
 
         // GET: api/Messages/5
@@ -23,9 +27,9 @@
         }
 
         [Route("Api/Messages")]
-        public SampleMessage Post([FromBody]SampleMessage message)
+        public SampleMessageDto Post([FromBody]SampleMessageDto message)
         {
-            this.MessageStore.SaveSampleMessage(message);
+            this.MessageStore.SaveSampleMessage(message.Map<SampleMessage>());
             return message;
         }
 

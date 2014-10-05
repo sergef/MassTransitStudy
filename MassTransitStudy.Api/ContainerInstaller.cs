@@ -1,8 +1,5 @@
 ﻿namespace MassTransitStudy.Api
 {
-    using System.Web.Http.Dependencies;
-    using System.Web.Http.Dispatcher;
-
     using Cassandra;
 
     using Castle.MicroKernel.Registration;
@@ -26,7 +23,7 @@
             container.Register(
                 Component
                     .For<IMessageStoreRepository>()
-                    .ImplementedBy<CassanraMessageStoreRepository>(),
+                    .ImplementedBy<CassandraMessageStoreRepository>(),
                 Component
                     .For<MessagesController>()
                     .LifeStyle

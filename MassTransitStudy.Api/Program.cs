@@ -27,6 +27,8 @@
                             return config;
                         }));
 
+            AutoMapperInstaller.InstallMappings();
+
             HostFactory.Run(config =>
                 {
                     config.RunAsNetworkService();

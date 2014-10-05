@@ -12,7 +12,10 @@
       <Value Profile="(Default)">Basic self-hosted Api service</Value>
     </Setting>
     <Setting Name="CassandraNode" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">192.168.0.2</Value>
+      <Value Profile="(Default)">192.168.0.13</Value>
+    </Setting>
+    <Setting Name="CassandraMessageStoreKeyspace" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MassTransitStudy</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -52,10 +52,19 @@ namespace MassTransitStudy.Api.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.13")]
         public string CassandraNode {
             get {
                 return ((string)(this["CassandraNode"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MassTransitStudy")]
+        public string CassandraMessageStoreKeyspace {
+            get {
+                return ((string)(this["CassandraMessageStoreKeyspace"]));
             }
         }
     }
