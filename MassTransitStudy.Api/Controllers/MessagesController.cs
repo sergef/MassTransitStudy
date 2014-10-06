@@ -1,5 +1,6 @@
 ﻿namespace MassTransitStudy.Api.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Http;
@@ -20,27 +21,31 @@
                 .Select(item => item.Map<SampleMessageDto>());
         }
 
-        // GET: api/Messages/5
-        public string Get(int id)
+        [Route("Api/Messages/{Id}")]
+        public SampleMessageDto Get(Guid id)
         {
-            return "value";
+            return this.MessageStore
+                .GetSampleMessage(id)
+                .Map<SampleMessageDto>();
         }
 
         [Route("Api/Messages")]
         public SampleMessageDto Post([FromBody]SampleMessageDto message)
         {
-            this.MessageStore.SaveSampleMessage(message.Map<SampleMessage>());
+            this.MessageStore.AddSampleMessage(message.Map<SampleMessage>());
             return message;
         }
 
-        // PUT: api/Messages/5
-        public void Put(int id, [FromBody]string value)
+        [Route("Api/Messages/{Id}")]
+        public void Put(Guid id, [FromBody]SampleMessageDto message)
         {
+            this.MessageStore.UpdateSampleMessage(id, message.Map<SampleMessage>());
         }
 
-        // DELETE: api/Messages/5
-        public void Delete(int id)
+        [Route("Api/Messages/{Id}")]
+        public void Delete(Guid id)
         {
+            this.MessageStore.DeleteSampleMessage(id);
         }
     }
 }

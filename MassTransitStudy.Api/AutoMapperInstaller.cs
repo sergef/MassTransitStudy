@@ -15,7 +15,9 @@
 
         public static TMapTo Map<TMapTo>(this object item)
         {
-            return AutoMapper.Mapper.Map<TMapTo>(item);
+            return item != null
+                ? AutoMapper.Mapper.Map<TMapTo>(item)
+                : default(TMapTo);
         }
     }
 }

@@ -10,15 +10,13 @@
     using MassTransitStudy.Api.Models;
     using MassTransitStudy.Api.Properties;
 
-    using StringFormat;
-
     public class CassandraMessageStoreRepository : IMessageStoreRepository
     {
         public ICluster Cluster { get; set; }
 
-        #region IPurseRepository Members
+        #region IMessageStoreRepository Members
 
-        public void CreateSchemaIfNotExists()
+        public void CreateSampleMessageSchemaIfNotExists()
         {
             using (var session = this.Cluster.Connect())
             {
@@ -30,11 +28,10 @@
             }
         }
 
-        public void SaveSampleMessage(SampleMessage message)
+        public void AddSampleMessage(SampleMessage message)
         {
-            using (var session = this.Cluster.Connect())
+            using (var session = this.Cluster.Connect(Settings.Default.CassandraMessageStoreKeyspace))
             {
-                session.ChangeKeyspace(Settings.Default.CassandraMessageStoreKeyspace);
                 var sampleMessagesTable = session.GetTable<SampleMessage>();
 
                 var batch = session.CreateBatch();
@@ -46,14 +43,55 @@
 
         public List<SampleMessage> GetSampleMessages(int startIndex, int numberOfItems)
         {
-            using (var session = this.Cluster.Connect())
+            using (var session = this.Cluster.Connect(Settings.Default.CassandraMessageStoreKeyspace))
             {
-                session.ChangeKeyspace(Settings.Default.CassandraMessageStoreKeyspace);
                 var sampleMessagesTable = session.GetTable<SampleMessage>();
 
                 return (from item in sampleMessagesTable select item)
                     .Execute()
                     .ToList();
+            }
+        }
+
+        public SampleMessage GetSampleMessage(Guid id)
+        {
+            using (var session = this.Cluster.Connect(Settings.Default.CassandraMessageStoreKeyspace))
+            {
+                var sampleMessagesTable = session.GetTable<SampleMessage>();
+
+                return sampleMessagesTable
+                    .FirstOrDefault(item => item.Id == id)
+                    .Execute();
+            }
+        }
+
+        public void DeleteSampleMessage(Guid id)
+        {
+            using (var session = this.Cluster.Connect(Settings.Default.CassandraMessageStoreKeyspace))
+            {
+                var sampleMessagesTable = session.GetTable<SampleMessage>();
+
+                sampleMessagesTable
+                    .Where(item => item.Id == id)
+                    .Delete()
+                    .Execute();
+            }
+        }
+
+        public void UpdateSampleMessage(Guid id, SampleMessage message)
+        {
+            using (var session = this.Cluster.Connect(Settings.Default.CassandraMessageStoreKeyspace))
+            {
+                var sampleMessagesTable = session.GetTable<SampleMessage>();
+
+                sampleMessagesTable
+                    .Where(item => item.Id == id)
+                    .Select(item => new SampleMessage
+                        {
+                            Data = message.Data
+                        })
+                    .Update()
+                    .Execute();
             }
         }
 

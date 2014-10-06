@@ -22,7 +22,7 @@
 
         public bool Start(HostControl hostControl)
         {
-            this.MessageStore.CreateSchemaIfNotExists();
+            this.MessageStore.CreateSampleMessageSchemaIfNotExists();
 
             this.WebApplication = WebApp.Start(
                 Settings.Default.ApiServiceBaseAddress,

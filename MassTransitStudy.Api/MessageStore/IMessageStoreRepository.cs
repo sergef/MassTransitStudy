@@ -1,15 +1,22 @@
 ﻿namespace MassTransitStudy.Api.MessageStore
 {
+    using System;
     using System.Collections.Generic;
 
     using MassTransitStudy.Api.Models;
 
     public interface IMessageStoreRepository
     {
-        void CreateSchemaIfNotExists();
+        void CreateSampleMessageSchemaIfNotExists();
 
-        void SaveSampleMessage(SampleMessage message);
+        void AddSampleMessage(SampleMessage message);
 
         List<SampleMessage> GetSampleMessages(int startIndex, int numberOfItems);
+
+        SampleMessage GetSampleMessage(Guid id);
+
+        void DeleteSampleMessage(Guid id);
+
+        void UpdateSampleMessage(Guid id, SampleMessage message);
     }
 }
