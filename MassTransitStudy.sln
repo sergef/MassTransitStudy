@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Api", "Mas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitStudy.Api.Tests", "MassTransitStudy.Api.Tests\MassTransitStudy.Api.Tests.csproj", "{F13126A2-9429-43FD-A4D5-CE2915C626F7}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "MassTransitStudy.NodejsExpress", "MassTransitStudy.NodejsExpress\MassTransitStudy.NodejsExpress.njsproj", "{334966CC-1AB2-403A-8F40-75CE3E2D0DAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{F13126A2-9429-43FD-A4D5-CE2915C626F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F13126A2-9429-43FD-A4D5-CE2915C626F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F13126A2-9429-43FD-A4D5-CE2915C626F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{334966CC-1AB2-403A-8F40-75CE3E2D0DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{334966CC-1AB2-403A-8F40-75CE3E2D0DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{334966CC-1AB2-403A-8F40-75CE3E2D0DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{334966CC-1AB2-403A-8F40-75CE3E2D0DAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

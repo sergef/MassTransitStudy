@@ -1,0 +1,15 @@
+{
+  "name": "MassTransitStudy.NodejsExpress",
+  "version": "0.0.0",
+  "description": "MassTransitStudy.NodejsExpress",
+  "main": "app.js",
+  "author": {
+    "name": "Sergey Fomin",
+    "email": "serge.fo@gmail.com"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "stylus": "*"
+  }
+}
