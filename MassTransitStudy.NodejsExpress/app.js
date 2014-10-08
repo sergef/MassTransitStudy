@@ -4,11 +4,19 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
+var bodyParser = require('body-parser');
+
+var jsonBodyParser = bodyParser.json();
+var formsBodyParser = bodyParser.urlencoded({ extended: false });
+
 var http = require('http');
 var path = require('path');
 
+var mongoose = require('mongoose');
+
+var appIndex = require('./routes/index');
+var apiIndex = require('./routes/api/index');
+var apiMessages = require('./routes/api/messages');
 var app = express();
 
 // all environments
@@ -29,9 +37,12 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/', appIndex.index);
+app.get('/api', apiIndex.index);
+app.get('/api/messages', apiMessages.list);
+app.post('/api/messages', jsonBodyParser, apiMessages.add);
 
 http.createServer(app).listen(app.get('port'), function () {
+    mongoose.connect('mongodb://192.168.0.2:27017/MassTransitStudy');
     console.log('Express server listening on port ' + app.get('port'));
 });

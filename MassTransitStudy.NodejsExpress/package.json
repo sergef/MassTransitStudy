@@ -10,6 +10,9 @@
   "dependencies": {
     "express": "3.4.4",
     "jade": "*",
-    "stylus": "*"
+    "stylus": "*",
+    "mongoose": "*",
+    "node-uuid": "*",
+    "body-parser": "*"
   }
 }
