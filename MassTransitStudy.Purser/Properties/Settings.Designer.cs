@@ -49,5 +49,23 @@ namespace MassTransitStudy.Purser.Properties {
                 return ((string)(this["ServiceDisplayName"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8081/")]
+        public string AspNetApiServiceBaseAddress {
+            get {
+                return ((string)(this["AspNetApiServiceBaseAddress"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8082/")]
+        public string NodeJsApiServiceBaseAddress {
+            get {
+                return ((string)(this["NodeJsApiServiceBaseAddress"]));
+            }
+        }
     }
 }

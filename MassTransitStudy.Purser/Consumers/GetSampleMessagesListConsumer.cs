@@ -1,7 +1,5 @@
-﻿namespace MassTransitStudy.Purser
+﻿namespace MassTransitStudy.Purser.Consumers
 {
-    using System.Collections.Generic;
-
     using log4net;
 
     using MassTransit;
@@ -10,9 +8,7 @@
 
     using StringFormat;
 
-    public class SampleMessageConsumer :
-        Consumes<SampleMessage>.All,
-        Consumes<GetSampleMessagesList>.All
+    public class GetSampleMessagesListConsumer : Consumes<GetSampleMessagesList>.All
     {
         public ILog Log { get; set; }
 
@@ -21,16 +17,6 @@
         public IApiClient ApiClient { get; set; }
 
         #region All Members
-
-        public void Consume(SampleMessage message)
-        {
-            this.ApiClient.SaveSampleMessage(message);
-
-            Log.Info(
-                TokenStringFormat.Format(
-                    "SampleMessage: {Id}, {Timestamp}, {Data}.",
-                    message));
-        }
 
         public void Consume(GetSampleMessagesList message)
         {
@@ -44,7 +30,7 @@
                     Result = sampleMessages
                 });
 
-            Log.Info(
+            this.Log.Info(
                 TokenStringFormat.Format(
                     "GetSampleMessagesList: {CorrelationId}.",
                     message));

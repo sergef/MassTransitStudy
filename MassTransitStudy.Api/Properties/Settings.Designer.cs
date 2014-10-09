@@ -67,5 +67,14 @@ namespace MassTransitStudy.Api.Properties {
                 return ((string)(this["CassandraMessageStoreKeyspace"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8081/")]
+        public string ServiceBaseAddress {
+            get {
+                return ((string)(this["ServiceBaseAddress"]));
+            }
+        }
     }
 }

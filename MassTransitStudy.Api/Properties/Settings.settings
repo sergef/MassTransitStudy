@@ -17,5 +17,8 @@
     <Setting Name="CassandraMessageStoreKeyspace" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MassTransitStudy</Value>
     </Setting>
+    <Setting Name="ServiceBaseAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8081/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

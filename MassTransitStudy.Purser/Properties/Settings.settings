@@ -11,5 +11,11 @@
     <Setting Name="ServiceDisplayName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MassTransit Study Purser</Value>
     </Setting>
+    <Setting Name="AspNetApiServiceBaseAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8081/</Value>
+    </Setting>
+    <Setting Name="NodeJsApiServiceBaseAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8082/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

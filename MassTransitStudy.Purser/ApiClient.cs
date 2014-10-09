@@ -4,12 +4,18 @@
     using System.Collections.Generic;
 
     using MassTransitStudy.Messages;
-    using MassTransitStudy.Messages.Properties;
 
     using RestSharp;
 
     public class ApiClient : IApiClient
     {
+        private readonly string ApiServiceBaseAddress;
+
+        public ApiClient(string apiServiceBaseAddress)
+        {
+            this.ApiServiceBaseAddress = apiServiceBaseAddress;
+        }
+
         #region IApiClient Members
 
         public SampleMessage SaveSampleMessage(SampleMessage message)
@@ -45,7 +51,7 @@
         {
             var client = new RestClient
                 {
-                    BaseUrl = Settings.Default.ApiServiceBaseAddress
+                    BaseUrl = this.ApiServiceBaseAddress
                 };
 
             var response = client.Execute<T>(request);

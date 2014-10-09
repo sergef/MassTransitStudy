@@ -8,6 +8,9 @@
 
     using MassTransit;
 
+    using MassTransitStudy.Purser.Consumers;
+    using MassTransitStudy.Purser.Properties;
+
     using Topshelf;
 
     public class ContainerInstaller : IWindsorInstaller
@@ -22,7 +25,9 @@
                     .BasedOn<IConsumer>(),
                 Component
                     .For<IApiClient>()
-                    .ImplementedBy<ApiClient>(),
+                    .ImplementedBy<ApiClient>()
+                    .DependsOn(
+                        Dependency.OnValue("apiServiceBaseAddress", Settings.Default.AspNetApiServiceBaseAddress)),
                 Component
                     .For<ILog>()
                     .UsingFactoryMethod(() =>

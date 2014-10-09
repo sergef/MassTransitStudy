@@ -5,8 +5,5 @@
     <Setting Name="QueuePath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">rabbitmq://localhost/MassTransitStudy</Value>
     </Setting>
-    <Setting Name="ApiServiceBaseAddress" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://localhost:8081/</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
