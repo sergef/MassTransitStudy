@@ -8,7 +8,6 @@
 
     using MassTransit;
 
-    using MassTransitStudy.Purser.Consumers;
     using MassTransitStudy.Purser.Properties;
 
     using Topshelf;

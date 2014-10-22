@@ -43,6 +43,6 @@ app.get('/api/messages', apiMessages.list);
 app.post('/api/messages', jsonBodyParser, apiMessages.add);
 
 http.createServer(app).listen(app.get('port'), function () {
-    mongoose.connect('mongodb://192.168.0.2:27017/MassTransitStudy');
+    mongoose.connect('mongodb://127.0.0.1:27017/MassTransitStudy');
     console.log('Express server listening on port ' + app.get('port'));
 });
